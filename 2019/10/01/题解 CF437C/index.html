@@ -8,10 +8,10 @@
   <meta name="description" content>
   <meta name="author" content="John Doe">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="Hello World">
+  <meta property="og:title" content="Hexo">
   <meta property="og:description" content>
   <meta property="og:site_name" content="Hexo">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="http://yoursite.com">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">Hello World</p>
+          <p class="title">Untitled Post</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -108,19 +108,31 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+          <h1 id="题解-CF437C"><a href="#题解-CF437C" class="headerlink" title="题解 CF437C"></a>题解 CF437C</h1><h2 id="基本思路—-贪心"><a href="#基本思路—-贪心" class="headerlink" title="基本思路—-贪心"></a>基本思路—-贪心</h2><p>既然要求最小代价，当用一定顺序删除时代价一定最小，不难发现，每次都删去x,y中最小的，最后的总代价业一定最小！ 因此就可以写出下面的简单的代码。<del>好草率</del></p>
+<h2 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h2><p>``#include<iostream></iostream></p>
+<p>#include&lt;math.h&gt;</p>
+<p>#include&lt;stdio.h&gt;</p>
+<p>#include&lt;string.h&gt;</p>
+<p>#include&lt;stdlib.h&gt;</p>
+<p>#include<utility></utility></p>
+<p>#include<map></map></p>
+<p>#include<string></string></p>
+<p>#include<queue></queue></p>
+<p>#include<deque></deque></p>
+<p>#include<algorithm></algorithm></p>
+<p>#define FT first</p>
+<p>#define SC second</p>
+<p>#define PB push_back</p>
+<p>#define MP make_pair</p>
+<p>#define REP(i, l, r) for(int i = (l); i &lt;= (r); i++)</p>
+<p>#define PER(i, r, l) for(int i = (r); i &gt;= (l); i–)</p>
+<p>#define FOR(i, n) for(int i = 0; i &lt; (n); i++)</p>
+<p>#define ROF(i, n) for(int i = (n) - 1; i &gt;= 0; i–)</p>
+<p>#define VEP(i, x) for(int i = 0; i &lt; x.size(); i++)</p>
+<p>#define DFOR(i, x, y) for(int i = hd[x], y = e[i].to; i; i = e[i].nxt, y = e[i].to)</p>
+<p>#define MEM(a, b) memset(a, b, sizeof(a))</p>
+<p>#define rint read<int>()</int></p>
+<p>#define rll read<ll>()<br>using namespace std;<br>typedef long long LL;<br>typedef long double LD;<br>typedef pair&lt;int, int&gt; PI;<br>const int inf = 0x7fffffff;<br>const int MOD = 1e9+7;<br>template <typename tn><br>inline tn read()<br>{<br>    char ch; tn f = 1;<br>    while (!isdigit(ch = getchar())) if (ch == ‘-‘) f = -1;<br>    tn x = ch - ‘0’;<br>    while (isdigit(ch = getchar())) x = x * 10 + ch - ‘0’;<br>    return x * f;<br>}<br>template <typename tn> inline void cmax(tn &amp;a, tn b){ if (a &lt; b) a = b; }<br>template <typename tn> inline void cmin(tn &amp;a, tn b){ if (a &gt; b) a = b; }<br>/<strong><strong>****</strong></strong>heading<strong><strong>***</strong></strong>/<br>int n,m,val[1025]/<em>权值</em>/,ans,x,y;<br>signed main()<br>{<br>    n=rint,m=rint;<br>    REP(i,1,n)val[i]=rint; //输入<br>    while(m–)<br>    {<br>        x=rint,y=rint;<br>        ans+=min(val[x],val[y]); //每步求最小<br>    }<br>    printf(“%d\n”,ans);<br>    return 0;<br>}</typename></typename></typename></ll></p>
 
         </div>
       </div>
